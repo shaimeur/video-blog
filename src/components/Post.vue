@@ -26,3 +26,27 @@
 };
 
   </script>
+
+<style scoped>
+.post {
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+video {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+div {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+}
+</style>

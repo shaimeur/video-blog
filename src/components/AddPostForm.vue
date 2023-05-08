@@ -11,6 +11,7 @@
       <input type="file" id="video" class="post-form__file-input" accept="video/*" ref="videoInput" @change="handleVideoChange" />
 
       <button type="submit" class="post-form__submit-button">Add Post</button>
+
     </form>
   </div>
 </template>

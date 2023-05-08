@@ -36,3 +36,31 @@ export default {
   },
 }
 </script>
+<style scoped>
+.post-list {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-size: 32px;
+  margin: 0 0 20px 0;
+}
+
+.no-posts-message {
+  font-size: 20px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  h2 {
+    font-size: 24px;
+  }
+
+  .no-posts-message {
+    font-size: 18px;
+  }
+}
+</style>
