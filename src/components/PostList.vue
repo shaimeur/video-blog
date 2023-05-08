@@ -5,10 +5,15 @@
       No posts yet. Why not add one?
     </div>
     <div v-else>
-      <Post v-for="(post, index) in posts" :key="index" :post="post" />
+      <Post
+        v-for="(post, index) in posts"
+        :key="index"
+        :post="{ title: post.title, content: post.content, videoUrl: post.videoUrl }"
+      />
     </div>
   </div>
 </template>
+
 
 <script>
 import Post from './Post.vue'

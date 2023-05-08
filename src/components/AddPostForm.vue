@@ -23,36 +23,35 @@ export default {
     };
   },
   methods: {
-    addPost() {
-      const postData = {
-        title: this.title,
-        content: this.content,
-        videoUrl: null,
-      };
-
-      // Save video to localStorage
+    async addPost() {
+      let videoUrl = null;
       if (this.video) {
+        const videoDataKey = `my-app-video-${Date.now()}`;
         const videoData = {
           name: this.video.name,
           type: this.video.type,
           size: this.video.size,
           lastModified: this.video.lastModified,
         };
-        const videoDataKey = `my-app-video-${Date.now()}`;
         localStorage.setItem(videoDataKey, JSON.stringify(videoData));
-        postData.videoUrl = videoDataKey;
+        videoUrl = videoDataKey;
       }
 
+      const postData = {
+        title: this.title,
+        content: this.content,
+        videoUrl: videoUrl,
+      };
       this.$store.dispatch("addPost", postData);
 
-      // clear the form
+      // Clear the form
       this.title = "";
       this.content = "";
       this.video = null;
       this.$refs.videoInput.value = "";
 
       // Navigate to home page and pass new post data as prop
-      this.$router.push({ name: 'home' });
+      this.$router.push({ name: "home" });
     },
     handleVideoChange(event) {
       this.video = event.target.files[0];
