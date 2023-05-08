@@ -1,12 +1,16 @@
+// store.js
 import { createStore } from 'vuex';
+
+const POSTS_STORAGE_KEY = 'my-app-posts';
 
 const store = createStore({
   state() {
     return {
-      posts: [
+      posts: JSON.parse(localStorage.getItem(POSTS_STORAGE_KEY)) || [
         {
           title: "my first post",
           content: "my first article",
+          videoUrl: null,
         },
       ],
     };
@@ -14,6 +18,7 @@ const store = createStore({
   mutations: {
     ADD_POST(state, postData) {
       state.posts.push(postData);
+      localStorage.setItem(POSTS_STORAGE_KEY, JSON.stringify(state.posts));
     },
   },
   actions: {
