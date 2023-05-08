@@ -1,17 +1,20 @@
 <template>
-  <form @submit.prevent="addPost">
-    <label for="title">Title</label>
-    <input type="text" id="title" v-model="title" />
+  <div class="post-form-container">
+    <form class="post-form" @submit.prevent="addPost">
+      <label for="title" class="post-form__label">Title</label>
+      <input type="text" id="title" class="post-form__input" v-model="title" />
 
-    <label for="content">Content</label>
-    <textarea id="content" v-model="content"></textarea>
+      <label for="content" class="post-form__label">Content</label>
+      <textarea id="content" class="post-form__textarea" v-model="content"></textarea>
 
-    <label for="video">Video</label>
-    <input type="file" id="video" accept="video/*" ref="videoInput" @change="handleVideoChange" />
+      <label for="video" class="post-form__label">Video</label>
+      <input type="file" id="video" class="post-form__file-input" accept="video/*" ref="videoInput" @change="handleVideoChange" />
 
-    <button type="submit">Add Post</button>
-  </form>
+      <button type="submit" class="post-form__submit-button">Add Post</button>
+    </form>
+  </div>
 </template>
+
 
 <script>
 export default {
@@ -59,3 +62,58 @@ export default {
   },
 };
 </script>
+<style scoped>
+.post-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.post-form__label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.post-form__input,
+.post-form__textarea,
+.post-form__file-input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.post-form__input:focus,
+.post-form__textarea:focus,
+.post-form__file-input:focus {
+  outline: none;
+  border-color: #4d90fe;
+  box-shadow: 0 0 4px #4d90fe;
+}
+
+.post-form__submit-button {
+  background-color: #4d90fe;
+  color: #fff;
+  padding: 0.5rem 2rem;
+  margin: 0 auto;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.post-form__submit-button:hover,
+.post-form__submit-button:focus {
+  background-color: #357ae8;
+}
+</style>
+
