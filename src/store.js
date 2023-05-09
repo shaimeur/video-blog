@@ -6,13 +6,7 @@ const POSTS_STORAGE_KEY = 'my-app-posts';
 const store = createStore({
   state() {
     return {
-      posts: JSON.parse(localStorage.getItem(POSTS_STORAGE_KEY)) || [
-        {
-          title: "my first post",
-          content: "my first article",
-          videoUrl: null,
-        },
-      ],
+      posts: JSON.parse(localStorage.getItem(POSTS_STORAGE_KEY)) || []
     };
   },
   mutations: {

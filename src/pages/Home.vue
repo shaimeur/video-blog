@@ -2,7 +2,7 @@
   <div class="container">
     <header>
       <h1>Vue Video Bloging App</h1>
-      <router-link to="/add-post">Add Post</router-link>
+      <router-link class="add" to="/add-post">Add Post</router-link>
     </header>
     <PostList :posts="posts" />
   </div>
@@ -10,7 +10,7 @@
 
 <script>
 import PostList from "../components/PostList.vue";
-import { ref, onMounted ,computed} from "vue";
+import { ref, onMounted, computed } from "vue";
 import store from "../store";
 
 export default {
@@ -61,7 +61,30 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
   margin-bottom: 20px;
+  padding: 8px 16px;
+  background-color: #7e7e7e42;
+  border-radius: 8px;
+  box-shadow: #0000002e 0px 8px 16px;
+  color: #ffffff;
+  border: 1px solid #fff;
+}
+header .add{
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #01010142;
+  cursor: pointer;
+}
+header .add:hover{
+  background-color: #450000;
+  color: #fff;
 }
 
 h1 {

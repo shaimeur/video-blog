@@ -4,11 +4,11 @@
     <div v-if="!posts || posts.length === 0">
       No posts yet. Why not add one?
     </div>
-    <div v-else>
+    <div v-else class="grid">
       <Post
         v-for="(post, index) in posts"
         :key="index"
-        :post="{ title: post.title, content: post.content, videoUrl: post.videoUrl }"
+        :post="{ title: post.title, content: post.content, videos: post.videos }"
       />
     </div>
   </div>
@@ -46,6 +46,11 @@ export default {
 h2 {
   font-size: 32px;
   margin: 0 0 20px 0;
+}
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
 }
 
 .no-posts-message {
